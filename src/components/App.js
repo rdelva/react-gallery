@@ -4,7 +4,12 @@ import SearchList from './SearchList';
 
 function App() {
   return (
-    <Form />
+    <div>
+      <Form />
+      <SearchList />
+
+     </div> 
+    
   );
 }
 
