@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { Component} from 'react';
 import Form from './Form';
 import SearchList from './SearchList';
+import axios from 'axios';
 
-function App() {
-  return (
-    <div>
-      <Form />
-      <SearchList />
+class App extends Component {
 
-     </div> 
-    
-  );
-}
+  
+  render(){
+
+    return (
+      <div>
+        <Form />
+        <SearchList />
+  
+       </div> 
+      
+    );
+  }
+
+  }
+
 
 export default App;
