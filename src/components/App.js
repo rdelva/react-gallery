@@ -4,8 +4,22 @@ import SearchList from './SearchList';
 import axios from 'axios';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state={
+      gifs:[]
+    }
+  }
 
-  
+
+  componentDidMount(){
+    this.enableSearch();
+  }
+
+  enableSearch = () =>{
+
+  }
+
   render(){
 
     return (
