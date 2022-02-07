@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchList from './SearchList';
 
-class Form extends Component{
+export default class Form extends Component{
 
     state = {
         searchTest: ''
@@ -12,7 +12,7 @@ class Form extends Component{
         this.setState({ searchText: e.target.value });
     }
 
-    handleSubmit = e => {
+    handleSubmit = (e) => {
         e.preventDefault();
         this.props.onSearch(this.query.value);
         e.currentTarget.reset();
@@ -25,14 +25,12 @@ class Form extends Component{
 
     return (
         <div >
-            <form className="search-form" onSubmit = { this.handleSubmit } >
+            <form className="search-form" onSubmit={this.handleSubmit} >
                 <input  type="search" 
-                        onChange = {this.onSearchChange}
+                        onChange={this.onSearchChange}
                         name="search" 
                         ref={(input => this.query = input)}
-                        placeholder="Search" 
-                        required  />
-
+                        placeholder="Search" />
 
                 <button type="submit" className="search-button">
                     <svg fill="#fff" height="24" viewBox="0 0 23 23" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -53,5 +51,3 @@ class Form extends Component{
  
 
 }
-
-export default Form;

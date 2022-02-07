@@ -1,13 +1,15 @@
 import React, { Component} from 'react';
-import Form from './Form';
+import Form from './SearchForm';
 import SearchList from './SearchList';
+//import GifList from './Components/GifList';
 import axios from 'axios';
 
 class App extends Component {
   constructor(){
     super();
     this.state={
-      gifs:[]
+      gifs:[],
+      loading: true
     }
   }
 
@@ -24,6 +26,7 @@ class App extends Component {
         gifs: response.data.data,
         loading: false
       });
+  
     })
     .catch(error => {
       console.log('Error fetching and parsing data', error);
@@ -35,10 +38,16 @@ class App extends Component {
   render(){
 
     return (
+      
       <div>
-        <Form />
-        <SearchList />
-  
+        <Form onSearch = {this.performSearch}/>
+        <SearchList />  
+        <div className="main-content">
+     
+        </div>
+
+
+
        </div> 
       
     );
