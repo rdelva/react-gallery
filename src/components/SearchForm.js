@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Nav from './Nav';
+
 
 export default class Form extends Component{
 
@@ -22,7 +22,7 @@ export default class Form extends Component{
 
 
  render() {
-    console.log(this.state.gifs);       
+    //console.log(this.state.gifs);       
     return (
             <form className="search-form" onSubmit={this.handleSubmit} >
                 <input  type="search" 
