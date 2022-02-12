@@ -8,7 +8,7 @@ export default class Form extends Component{
     }
 
 
-    onSearchChange  = e =>{
+    onSearchChange  = (e) =>{
         this.setState({ searchText: e.target.value });
     }
 
@@ -21,10 +21,10 @@ export default class Form extends Component{
  
 
 
- render(){
+ render() {
 
     return (
-        <div >
+       
             <form className="search-form" onSubmit={this.handleSubmit} >
                 <input  type="search" 
                         onChange={this.onSearchChange}
@@ -39,7 +39,7 @@ export default class Form extends Component{
                     </svg>
                 </button>
             </form>            
-       </div> 
+ 
      
 
      );

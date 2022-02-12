@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import Form from './SearchForm';
+import SearchForm from './SearchForm';
 import SearchList from './SearchList';
 //import GifList from './Components/GifList';
 import axios from 'axios';
@@ -40,7 +40,7 @@ class App extends Component {
     return (
       
       <div>
-        <Form onSearch = {this.performSearch}/>
+        <SearchForm onSearch={this.enableSearch}/>
         <SearchList />  
         <div className="main-content">
      
