@@ -3,6 +3,7 @@ import SearchForm from './SearchForm';
 import Nav from './Nav';
 import Photo from './Photo';
 import axios from 'axios';
+import config from './config';
 
 class App extends Component {
   constructor(){
@@ -20,7 +21,7 @@ class App extends Component {
 
   enableSearch = (query = 'cats') =>{
 
-    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=3d92e860f2bbda59f5984f034285876f&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
+    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
     .then(response => {
       this.setState({
         gifs: response.data.data,
