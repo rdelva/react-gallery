@@ -22,9 +22,8 @@ export default class Form extends Component{
 
 
  render() {
-
+    console.log(this.state.gifs);       
     return (
-       
             <form className="search-form" onSubmit={this.handleSubmit} >
                 <input  type="search" 
                         onChange={this.onSearchChange}

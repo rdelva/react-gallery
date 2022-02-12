@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import SearchForm from './SearchForm';
 import Nav from './Nav';
-//import GifList from './Components/GifList';
+import Photo from './Photo';
 import axios from 'axios';
 
 class App extends Component {
@@ -43,7 +43,11 @@ class App extends Component {
         <SearchForm onSearch={this.enableSearch}/>
         <Nav />  
         <div className="main-content">
-     
+          {
+            (this.state.loading) 
+              ? <p>Loading ...</p>
+              : <Photo data = {this.state.gifs}/>
+          }
         </div>
 
 
