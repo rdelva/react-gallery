@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchList from './SearchList';
+import Nav from './Nav';
 
 export default class Form extends Component{
 

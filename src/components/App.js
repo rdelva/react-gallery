@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import SearchForm from './SearchForm';
-import SearchList from './SearchList';
+import Nav from './Nav';
 //import GifList from './Components/GifList';
 import axios from 'axios';
 
@@ -41,7 +41,7 @@ class App extends Component {
       
       <div>
         <SearchForm onSearch={this.enableSearch}/>
-        <SearchList />  
+        <Nav />  
         <div className="main-content">
      
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const SearchList  = () => {
+const Nav  = () => {
     return(
         <ul className="main-nav">
             <li><a>Cats</a></li>
@@ -14,4 +14,4 @@ const SearchList  = () => {
 
 }
 
-export default SearchList;
+export default Nav;
