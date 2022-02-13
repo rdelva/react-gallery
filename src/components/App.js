@@ -40,7 +40,7 @@ class App extends Component {
   render(){
     return (
       
-      <div>
+      <div className="container">
         <SearchForm onSearch={this.enableSearch}/>
         <Nav />  
         <div className="main-content">
