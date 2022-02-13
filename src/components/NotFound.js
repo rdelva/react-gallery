@@ -1,4 +1,4 @@
-import {React, Component} from 'react';
+import React from 'react';
 
 
 const NotFound = () => {
@@ -6,3 +6,5 @@ const NotFound = () => {
         <p>No Results</p>
     );
 }
+
+export default NotFound;
