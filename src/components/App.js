@@ -1,9 +1,10 @@
 import React, { Component} from 'react';
 import SearchForm from './SearchForm';
 import Nav from './Nav';
-import Photo from './Photo';
+import Photos from './Photos';
 import axios from 'axios';
 import apiKey from '../config';
+
 
 class App extends Component {
   constructor(){
@@ -19,11 +20,10 @@ class App extends Component {
     this.enableSearch();
   }
 
-  enableSearch = (query = 'cats') =>{
+  enableSearch = (query = 'sunrise') =>{
  
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
     .then(response => {
-      console.log(response);
       this.setState({
         gifs: response.data.photos.photo,
         loading: false
@@ -38,7 +38,6 @@ class App extends Component {
   }
 
   render(){
-    console.log(this.state.gifs);
     return (
       
       <div>
@@ -48,7 +47,7 @@ class App extends Component {
           {
             (this.state.loading) 
               ? <p>Loading ...</p>
-              : <Photo data = {this.state.gifs}/>
+              : <Photos data = {this.state.gifs}/>
           }
         </div>
 
