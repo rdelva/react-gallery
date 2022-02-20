@@ -13,26 +13,23 @@ import NotFound from './NotFound';
 
 
 
-const App = () => {
+const App = () => (
+  <BrowserRouter> 
+    <SearchForm />
+    <Nav />
+    <Switch>
+    <Route exact path="/" />
+      <Route path="/cats" component={Photos} />
+      <Route path="/shoes" component={Photos} />
+      <Route path="/flowers" component={Photos} />          
+      <Route component={<NotFound/>} />
+    </Switch>
+ 
+</BrowserRouter>
+);
+   
 
-  return(
-    <BrowserRouter> 
-        <SearchForm />
-        <Nav />
-        <Switch>
-          <Route exact path="/" render ={() => <Photos /> } />
-          <Route path="/cats" render={()=> <Photos />} />
-          <Route path="/shoes" render={()=> <Photos />} />
-          <Route path="/flowers" render={()=> <Photos />} />          
-          <Route component={<NotFound/>} />
-        </Switch>
-       
-   </BrowserRouter>
 
-
-  );
-
-}
 
 
 export default App;
