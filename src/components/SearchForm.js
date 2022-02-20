@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-export default class Form extends Component{
+class SearchForm extends Component{
 
     state = {
         searchTest: ''
@@ -49,4 +49,4 @@ export default class Form extends Component{
  
  
 
-}
+}//end of Search Form class
