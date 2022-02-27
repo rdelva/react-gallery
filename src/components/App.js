@@ -37,8 +37,15 @@ export default class App extends Component {
     this.performSearch();
   }
 
-  handleClick( {match}){
-    console.log({match});
+  handleClick({match} ){
+
+  console.log({match});
+
+
+    // Create a new component that is "connected" (to borrow redux
+// terminology) to the router.
+    // const ShowTheLocationWithRouter = withRouter(ShowTheLocation);
+    // console.log(ShowTheLocationWithRouter);
 
   }
 
