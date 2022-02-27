@@ -13,28 +13,42 @@ import SearchForm from './SearchForm';
 import Nav from './Nav';
 import Photos from './Photos';
 import NotFound from './NotFound';
-
+import SearchItem from './SearchItem';
+// import ShowTheLocation from './ShowTheLocation';
+// import withRouter from './withRouter';
 
 
 export default class App extends Component {
   constructor(){
     super();
+
     this.state = {
-        gifs:[]
+        gifs:[],
+       
     };
+  
+    
   }
+
+
+
 
   componentDidMount(){
     this.performSearch();
   }
 
-  performSearch = (query = 'cats') => {
+  handleClick( {match}){
+    console.log({match});
+
+  }
+
+  performSearch = (query = 'tulips') => {
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
     .then( response => {
             
             this.setState({
-              gifs:response.data.photos.photo,
-              loading:false
+              gifs: response.data.photos.photo,
+              loading: false
             });
     })
     .catch(
@@ -44,25 +58,26 @@ export default class App extends Component {
   }
 
   render(){
-    
-    return (
+    return (  
+      <div className="container">
       <BrowserRouter> 
+     
       <SearchForm onSearch={this.performSearch} />
-      <Nav />
-        {
-          (this.state.loading)
-          ? <p>Loading...</p>
-          : <Photos data={this.state.gifs} />          
-        }
+      <Nav navItem={this.handleClick} /> 
+      
 
         <Switch>
-          <Route exact path="/" />
-          <Route path="/cats" component={Photos} />
-          <Route path="/shoes" component={Photos} />
-          <Route path="/flowers" component={Photos} />          
+            {  
+            (this.state.loading)
+              ? <p>Loading...</p>
+              : <Route  exact path="/" render={ ()=> <Photos data={this.state.gifs} /> }/>          
+          }
+       
+          <Route path="/:query" render={ () => <Photos /> } />        
           <Route component={NotFound} />
         </Switch> 
       </BrowserRouter>
+      </div>
     );
   }
 }

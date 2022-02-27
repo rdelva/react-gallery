@@ -1,21 +1,39 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Photo from './Photo';
 import NotFound from './NotFound';
-import axios from 'axios';
-import apiKey from '../config';
 
 
-class Photos extends Component {
- 
+const Photos = (props) => {
+    const results = props.data;
+
+    let gifs;
     
-render(){
+   
+
+    if(results.length > 0){
+        gifs = results.map((result, index) => 
+        <Photo server={result.server} secret={result.secret} id={result.id} key={index}  />   
+    
+        );
+    } else {
+        gifs = <NotFound />
+    }
+    
+
     return(
-        <div>Photos</div>
+     
+        <div className="photo-container"> 
+           <ul>
+                {gifs}
+            </ul>
+        </div>   
+      
+
     );
 
-}
+
 
     
-}// end of Photos class
+}// end of Photos 
 
 export default Photos;

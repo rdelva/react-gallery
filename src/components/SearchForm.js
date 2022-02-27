@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 
 
@@ -6,7 +7,6 @@ class SearchForm extends Component{
     state = {
         searchTest: ''
     }
-
 
     onSearchChange  = (e) =>{
         this.setState({ searchText: e.target.value });
@@ -18,13 +18,10 @@ class SearchForm extends Component{
         e.currentTarget.reset();
     }
 
- 
-
-
  render() {
     //console.log(this.state.gifs);       
     return (
-            <form className="search-form" onSubmit={this.handleSubmit} >
+            <form className="search-form" onSubmit={this.handleSubmit}>
                 <input  type="search" 
                         onChange={this.onSearchChange}
                         name="search" 
