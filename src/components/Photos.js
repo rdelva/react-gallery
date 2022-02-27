@@ -23,6 +23,7 @@ const Photos = (props) => {
     return(
      
         <div className="photo-container"> 
+          
            <ul>
                 {gifs}
             </ul>

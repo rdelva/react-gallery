@@ -37,13 +37,14 @@ export default class App extends Component {
     this.performSearch();
   }
 
-  handleClick({match} ){
+  handleClick( {match}){
 
-  console.log({match});
-
+    console.log("Hewo");
+    console.log({match});
+   
 
     // Create a new component that is "connected" (to borrow redux
-// terminology) to the router.
+    // terminology) to the router.
     // const ShowTheLocationWithRouter = withRouter(ShowTheLocation);
     // console.log(ShowTheLocationWithRouter);
 
@@ -77,7 +78,7 @@ export default class App extends Component {
             {  
             (this.state.loading)
               ? <p>Loading...</p>
-              : <Route  exact path="/" render={ ()=> <Photos data={this.state.gifs} /> }/>          
+              : <Route  exact path="/" render={ ()=> <Photos data={this.state.gifs} title= {this.query} /> }/>          
           }
        
           <Route path="/:query" render={ () => <Photos /> } />        
