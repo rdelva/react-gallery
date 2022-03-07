@@ -1,16 +1,20 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {
+    NavLink,
+    withRouter }
+from 'react-router-dom';
 
 
-const Nav = (props) => {
+const Nav = ({match}) => {
+    console.log({match});
     
     return (
 
         <div className="main-nav">
             <ul>
-                <li><NavLink to="/cats">Cats</NavLink></li>
-                <li><NavLink to="/dogs">Dogs</NavLink></li>
-                <li><NavLink to="/birds">Birds</NavLink></li>
+                <li><NavLink to="/search/cats">Cats</NavLink></li>
+                <li><NavLink to="/search/dogs">Dogs</NavLink></li>
+                <li><NavLink to="/search/birds">Birds</NavLink></li>
             </ul>
         </div>
 
@@ -18,4 +22,5 @@ const Nav = (props) => {
 
 }
 
-export default Nav;
+//export default Nav;
+export default withRouter(Nav);
