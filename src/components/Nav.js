@@ -12,8 +12,8 @@ const Nav = (props) => {
         <div className="main-nav">
             <ul>
                 <li><NavLink to="/search/cats" onClick={props.navItem} id="cats">Cats</NavLink></li>
-                <li><NavLink to="/search/dogs">Dogs</NavLink></li>
-                <li><NavLink to="/search/birds">Birds</NavLink></li>
+                <li><NavLink to="/search/dogs" onClick={props.navItem} id="dogs">Dogs</NavLink></li>
+                <li><NavLink to="/search/birds" onClick={props.navItem} id="birds">Birds</NavLink></li>
             </ul>
         </div>
 
