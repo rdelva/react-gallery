@@ -1,9 +1,12 @@
 import React from 'react';
 import NotFound from './NotFound';
 import Photo from './Photo';
+import {withRouter } from 'react-router-dom';
  
+
 const PhotoGallery = (props) =>{
     const photoList = props.data;
+
     let images;
 
     if(photoList.length > 0 ){
@@ -14,10 +17,11 @@ const PhotoGallery = (props) =>{
         images = <NotFound />
     }
     
-  
+  console.log(props);
 
     return(
         <div className="photo-container">
+            <h1>{props.title} Photos</h1> 
             <ul>
                 {images}
                 
@@ -26,4 +30,5 @@ const PhotoGallery = (props) =>{
     );
 }
 
-export default PhotoGallery;
+//export default PhotoGallery;
+export default withRouter(PhotoGallery);
