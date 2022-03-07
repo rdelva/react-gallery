@@ -22,6 +22,13 @@ class App extends Component{
         }
     }
 
+
+    handleClick = (e) =>{
+        const query = e.target.id
+       
+       this.performSearch(query); 
+    }
+
     componentDidMount(){
         this.performSearch();
     }
@@ -49,7 +56,7 @@ class App extends Component{
             <div className="container">
                 <BrowserRouter>
                     <SearchForm onSearch={this.performSearch} />
-                    <Nav />
+                    <Nav navItem={this.handleClick} />
  
                     <Switch>
                         <Route exact path="/" render={() =>                                                
@@ -57,7 +64,7 @@ class App extends Component{
                             ? <p>Loading ...</p>
                             : <PhotoGallery data={this.state.gifs}  title={this.state.query}/>                            
                          }/>
-                        <Route exact path="/search/:query" render={ ()=> <PhotoGallery  data={this.state.gifs} /> }/>       
+                        <Route exact path="/search/:query" render={ ()=> <PhotoGallery  data={this.state.gifs} title={this.state.query} /> }/>       
                         <Route component={NotFound} />
                     </Switch>    
                 </BrowserRouter>
