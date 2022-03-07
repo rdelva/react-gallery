@@ -11,7 +11,7 @@ const PhotoGallery = (props) =>{
 
     if(photoList.length > 0 ){
         images = photoList.map((photo, index) => 
-            <Photo server={photo.server} secret={photo.secret} id={photo.id} key={index}  />           
+            <Photo server={photo.server} secret={photo.secret} id={photo.id} key={index}  alt={props.altTag}/>           
         );
     } else {
         images = <NotFound />

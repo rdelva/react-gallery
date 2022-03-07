@@ -62,7 +62,7 @@ class App extends Component{
                         <Route exact path="/" render={() =>                                                
                             (this.state.loading)
                             ? <p>Loading ...</p>
-                            : <PhotoGallery data={this.state.gifs}  title={this.state.query}/>                            
+                            : <PhotoGallery data={this.state.gifs}  title={this.state.query} altTag={this.state.query}/>                            
                          }/>
                         <Route exact path="/search/:query" render={ ()=> <PhotoGallery  data={this.state.gifs} title={this.state.query} /> }/>       
                         <Route component={NotFound} />
