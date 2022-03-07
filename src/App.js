@@ -47,7 +47,7 @@ class App extends Component{
         return(
             <div className="container">
                 <BrowserRouter>
-                    <SearchForm />
+                    <SearchForm onSearch={this.performSearch} />
                     <Nav />
                     {
                         (this.state.loading)

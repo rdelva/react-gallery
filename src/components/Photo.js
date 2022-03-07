@@ -1,11 +1,14 @@
 import React from 'react';
 
-const Photo = () => {
+const Photo = (props, key) => {
+    console.log(props);
     return(
-        <li>
-            hi
+       
+            <li>            
+                <img src= {`https://live.staticflickr.com/${props.server}/${props.id}_${props.secret}_q.jpg`} key={`${key}`} alt=""/>
+            </li>
 
-        </li>
+       
     );
 }
 

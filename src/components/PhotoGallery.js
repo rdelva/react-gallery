@@ -8,7 +8,7 @@ const PhotoGallery = (props) =>{
 
     if(photoList.length > 0 ){
         images = photoList.map((photo, index) => 
-            <Photo server={photoList.server} secret={photoList.secret} id={photoList.id} key={index}  />           
+            <Photo server={photo.server} secret={photo.secret} id={photo.id} key={index}  />           
         );
     } else {
         images = <NotFound />
@@ -19,9 +19,7 @@ const PhotoGallery = (props) =>{
     return(
         <div className="photo-container">
             <ul>
-                {
-                    {images}
-                }
+                {images}
                 
             </ul>
         </div>
