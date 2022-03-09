@@ -26,6 +26,9 @@ class App extends Component{
     handleClick = (e) =>{
         const query = e.target.id       
         this.performSearch(query); 
+        // let path = `/search/${query}`;
+        // this.props.history.push(path);
+        // console.log(this.props.history);
     }
 
     componentDidMount(){
