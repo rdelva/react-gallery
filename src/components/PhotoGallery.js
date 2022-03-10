@@ -22,7 +22,7 @@ const PhotoGallery = (props) =>{
 
     return(
         <div className="photo-container">
-            <h1>{props.title} Photos</h1> 
+            <h2>{props.title} Photos</h2> 
             <ul>
                 {images}
                 
