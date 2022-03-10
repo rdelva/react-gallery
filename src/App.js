@@ -18,7 +18,8 @@ class App extends Component{
         
         this.state = {
             gifs:[],
-            loading:true
+            loading:true,
+            history:[]
         }
     }
 
@@ -32,9 +33,10 @@ class App extends Component{
 
     componentDidMount(){
        this.performSearch();
+       
     }
 
-    
+  
 
     performSearch = (query = 'tulips') => {
         axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
@@ -43,8 +45,9 @@ class App extends Component{
                 this.setState({
                   gifs: response.data.photos.photo,
                   loading: false,
-                  query: query
-                
+                  query: query,
+                  history:[]
+
                 });
         })
         .catch(
