@@ -28,7 +28,19 @@ class App extends Component{
         const query = e.target.id       
         this.performSearch(query); 
       
-    
+        this.setState(prevState => {
+          const historyList = prevState.history;
+          historyList.push(`/search/${query}`);            
+     
+          console.log(historyList);
+        return {
+            history:historyList
+        
+        }
+     
+        });
+
+        console.log(this.props);
     }
 
     componentDidMount(){
@@ -46,8 +58,7 @@ class App extends Component{
                   gifs: response.data.photos.photo,
                   loading: false,
                   query: query,
-                  history:[]
-
+                
                 });
         })
         .catch(
