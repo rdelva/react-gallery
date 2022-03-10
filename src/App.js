@@ -26,7 +26,7 @@ class App extends Component{
     handleClick = (e) =>{
         const query = e.target.id       
         this.performSearch(query); 
-        console.log(e);
+      
     
     }
 

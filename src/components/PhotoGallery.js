@@ -16,8 +16,9 @@ const PhotoGallery = (props) =>{
     } else {
         images = <NotFound />
     }
-    
-    
+
+
+
 
     return(
         <div className="photo-container">
