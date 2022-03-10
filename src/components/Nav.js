@@ -13,7 +13,9 @@ const Nav = (props) => {
       
     
     return (
-
+        /*
+         * When you click on the link it sends an event which contains the id name to be sent into the query. through the navItem props       
+         */
         <div className="main-nav">
             <ul>
                 <li><NavLink to="/search/cats" onClick={props.navItem} id="cats">Cats</NavLink></li>

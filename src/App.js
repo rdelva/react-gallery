@@ -23,7 +23,12 @@ class App extends Component{
         }
     }
 
-
+    /* 
+        This is the handle click for the Nav component. When an item is clicked it will pass the value to here
+        However, I'm not sure why I can't pull the this.props to access the history. When I do it it errors out.
+        Tried to create a history state. so I can pull the query choices to keep track of it.
+    
+    */
     handleClick = (e) =>{
         const query = e.target.id       
         this.performSearch(query); 
@@ -49,7 +54,9 @@ class App extends Component{
     }
 
   
-
+    /* 
+        Using Axios to pull the images and then sending it to PhotoGallery
+     */
     performSearch = (query = 'tulips') => {
         axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
         .then( response => {
