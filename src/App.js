@@ -26,15 +26,15 @@ class App extends Component{
     handleClick = (e) =>{
         const query = e.target.id       
         this.performSearch(query); 
-        // let path = `/search/${query}`;
-        // this.props.history.push(path);
-        // console.log(this.props.history);
+        console.log(this.props);
+    
     }
 
     componentDidMount(){
-        this.performSearch();
+       this.performSearch();
     }
 
+    
 
     performSearch = (query = 'tulips') => {
         axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
@@ -44,6 +44,7 @@ class App extends Component{
                   gifs: response.data.photos.photo,
                   loading: false,
                   query: query
+                
                 });
         })
         .catch(
