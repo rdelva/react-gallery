@@ -19,7 +19,7 @@ class App extends Component{
         this.state = {
             gifs:[],
             loading:true,
-            history:[]
+            history:''
         }
     }
 
@@ -34,12 +34,28 @@ class App extends Component{
         this.performSearch(query); 
     }
 
+    historyHandle = (item) => {
+        console.log(item);
+
+    }
 
 
     componentDidMount(){
        this.performSearch();       
     }
 
+
+    componentDidUpdate(prevProps=null, prevState){
+        console.log(prevState.history);  
+        console.log(window.location.pathname);      
+        
+        if(prevState.history !== window.location.pathname ){
+            console.log(prevState);
+            console.log('Should display:' + prevState.query);
+            //this.props.onSearch(prevState.query);
+
+        }
+    }
   
     /* 
         Using Axios to pull the images and then sending it to PhotoGallery
@@ -52,6 +68,7 @@ class App extends Component{
                   gifs: response.data.photos.photo,
                   loading: false,
                   query: query,
+                  history:`/search/${query}`
                 
                 });
         })
@@ -63,6 +80,9 @@ class App extends Component{
     
 
     render () {
+       
+
+       
         return(
             <div className="container">
                 <BrowserRouter>
@@ -75,7 +95,7 @@ class App extends Component{
                             ? <p>Loading ...</p>
                             : <PhotoGallery data={this.state.gifs}  title={this.state.query} altTag={this.state.query}/>                            
                          }/>
-                        <Route exact path="/search/:query" render={ ()=> <PhotoGallery  data={this.state.gifs} title={this.state.query} altTag={this.state.query}/> }/>       
+                        <Route exact path="/search/:query" render={ ()=> <PhotoGallery  data={this.state.gifs} title={this.state.query} altTag={this.state.query}  /> }/>       
                         <Route component={NotFound} />
                     </Switch>    
                 </BrowserRouter>

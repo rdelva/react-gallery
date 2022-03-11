@@ -6,13 +6,10 @@ import {withRouter } from 'react-router-dom';
 
 const PhotoGallery = (props) =>{
     const photoList = props.data;
-     
-    //adding searches to the history
-      let path = props.location.pathname;
-      console.log(path);  
-      console.log(props.state);
-
+   
     let images;
+
+   
 
     if(photoList.length > 0 ){
         images = photoList.map((photo, index) => 
@@ -23,6 +20,7 @@ const PhotoGallery = (props) =>{
     }
 
    
+
     
     return(
         <div className="photo-container">
@@ -35,5 +33,5 @@ const PhotoGallery = (props) =>{
     );
 }
 
-//export default PhotoGallery;
+
 export default withRouter(PhotoGallery);
