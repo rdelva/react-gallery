@@ -6,6 +6,11 @@ import {withRouter } from 'react-router-dom';
 
 const PhotoGallery = (props) =>{
     const photoList = props.data;
+     
+    //adding searches to the history
+      let path = props.location.pathname;
+      console.log(path);  
+      console.log(props.state);
 
     let images;
 
