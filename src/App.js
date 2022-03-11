@@ -36,7 +36,6 @@ class App extends Component{
 
     historyHandle = (item) => {
         console.log(item);
-
     }
 
 
@@ -49,11 +48,16 @@ class App extends Component{
         console.log(prevState.history);  
         console.log(window.location.pathname);      
         
+        /*
+        * if the url path goes to the previous page it will output the query name into 
+        *perform Search. However I don't know hot to call this.on
+        */ 
+
         if(prevState.history !== window.location.pathname ){
             console.log(prevState);
             console.log('Should display:' + prevState.query);
-            //this.props.onSearch(prevState.query);
-
+            const query = prevState.query;
+           console.log(query);
         }
     }
   
@@ -95,7 +99,7 @@ class App extends Component{
                             ? <p>Loading ...</p>
                             : <PhotoGallery data={this.state.gifs}  title={this.state.query} altTag={this.state.query}/>                            
                          }/>
-                        <Route exact path="/search/:query" render={ ()=> <PhotoGallery  data={this.state.gifs} title={this.state.query} altTag={this.state.query}  /> }/>       
+                        <Route exact path="/search/:query" render={ ()=> <PhotoGallery  data={this.state.gifs} title={this.state.query} altTag={this.state.query} /> }/>       
                         <Route component={NotFound} />
                     </Switch>    
                 </BrowserRouter>
