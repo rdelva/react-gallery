@@ -32,25 +32,12 @@ class App extends Component{
     handleClick = (e) =>{
         const query = e.target.id       
         this.performSearch(query); 
-      
-        this.setState(prevState => {
-          const historyList = prevState.history;
-          historyList.push(`/search/${query}`);            
-     
-          console.log(historyList);
-        return {
-            history:historyList
-        
-        }
-     
-        });
-
-        console.log(this.props);
     }
 
+
+
     componentDidMount(){
-       this.performSearch();
-       
+       this.performSearch();       
     }
 
   
