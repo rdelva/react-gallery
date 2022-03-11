@@ -57,7 +57,8 @@ class App extends Component{
             console.log(prevState);
             console.log('Should display:' + prevState.query);
             const query = prevState.query;
-           console.log(query);
+            console.log(query);
+          /* Not sure how to send the value to perform Search. calling this.performSearch makes it go crazy. Should I use an onChange event in PhotoGallery */
         }
     }
   
