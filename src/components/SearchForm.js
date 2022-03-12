@@ -20,6 +20,7 @@ class SearchForm extends Component {
         e.preventDefault();
         this.props.onSearch(this.query.value);
         e.currentTarget.reset();
+        this.props.history.push(this.query.value);
     }
 
     render () {
