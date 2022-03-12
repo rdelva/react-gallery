@@ -4,12 +4,17 @@ import Photo from './Photo';
 import {withRouter } from 'react-router-dom';
  
 
-const PhotoGallery = (props) =>{
+const PhotoGallery = (props, {match}) =>{
     const photoList = props.data;
+    console.log(props.match);
+
+    // if(props.match.url){
+    //     props.queryNameDisplay(props.match.params.query);
+    // }
    
     let images;
 
-   
+  
 
     if(photoList.length > 0 ){
         images = photoList.map((photo, index) => 
