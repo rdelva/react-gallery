@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import apiKey from './config.js';
-import{
-    BrowserRouter,
+import{    
     Route,
-    Switch
+    Switch, 
+    withRouter
 } from 'react-router-dom';
 import SearchForm from './components/SearchForm';
 import Nav from './components/Nav';
@@ -44,22 +44,29 @@ class App extends Component{
     }
 
 
-    componentDidUpdate(prevProps=null, prevState){
-        console.log(prevState.history);  
-        console.log(window.location.pathname);      
-        
+    componentDidUpdate(prevProps, prevState){
+        console.log('Old Properties' + this.prevProps);  
+        console.log('new Properties:' + this.props.match);      
+        console.log(this.props.match);
         /*
         * if the url path goes to the previous page it will output the query name into 
         *perform Search. However I don't know hot to call this.on
-        */ 
+            prevProps -->
+            this.props.match - currentProps
+        
+        
 
-        if(prevState.history !== window.location.pathname ){
-            console.log(prevState);
-            console.log('Should display:' + prevState.query);
-            const query = prevState.query;
-            console.log(query);
-          /* Not sure how to send the value to perform Search. calling this.performSearch makes it go crazy. Should I use an onChange event in PhotoGallery */
-        }
+        // if(prevState.history !== window.location.pathname ){
+        //     console.log(prevState);
+        //     //console.log('Should display:' + prevState.query);
+        //     const query = prevState.query;
+            //console.log(query);
+          /* Not sure how to send the value to perform Search. calling this.performSearch makes it go crazy. Should I use an onChange event in PhotoGallery 
+          
+          */
+    //}
+        
+        
     }
   
     /* 
@@ -90,7 +97,7 @@ class App extends Component{
        
         return(
             <div className="container">
-                <BrowserRouter>
+                
                     <SearchForm onSearch={this.performSearch} />
                     <Nav navItem={this.handleClick} />
  
@@ -103,7 +110,7 @@ class App extends Component{
                         <Route exact path="/search/:query" render={ ()=> <PhotoGallery  data={this.state.gifs} title={this.state.query} altTag={this.state.query} /> }/>       
                         <Route component={NotFound} />
                     </Switch>    
-                </BrowserRouter>
+               
               
 
             </div>
@@ -114,4 +121,5 @@ class App extends Component{
 
 }
 
-export default App;
+//export default App;
+export default withRouter(App);
