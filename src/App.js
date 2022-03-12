@@ -19,55 +19,55 @@ class App extends Component{
         this.state = {
             gifs:[],
             loading:true,
-            history:''
+            history:'',
+            query:'tulip'
         }
     }
 
     /* 
-        This is the handle click for the Nav component. When an item is clicked it will pass the value to here
-        However, I'm not sure why I can't pull the this.props to access the history. When I do it it errors out.
-        Tried to create a history state. so I can pull the query choices to keep track of it.
-    
+    * Handle Click for the Navaigation
+    *    
     */
     handleClick = (e) =>{
         const query = e.target.id       
         this.performSearch(query); 
+  
     }
 
-    historyHandle = (item) => {
-        console.log(item);
+    /* 
+    * Handle Click for the Address bar
+    * NOTE: Hid the code in PhotoGallery = when you uncomment it causes it to freak out. Need to figure out what event to use which will listen 
+    * to the url and pull the query value to this.peform search   
+    */
+
+    handleAddress = (query) =>{
+        this.performSearch(query);
     }
+
 
 
     componentDidMount(){
        this.performSearch();       
     }
+    
+    /**** 
+    * tracks to see if the address bar is the same  as the display
+    */
+    componentDidUpdate(prevProps) {
 
+        // console.log(prevProps.location.pathname); //whats displayed
+        // console.log(this.props.location.pathname); //address in the adress bar
 
-    componentDidUpdate(prevProps, prevState){
-        console.log('Old Properties' + this.prevProps);  
-        console.log('new Properties:' + this.props.match);      
-        console.log(this.props.match);
-        /*
-        * if the url path goes to the previous page it will output the query name into 
-        *perform Search. However I don't know hot to call this.on
-            prevProps -->
-            this.props.match - currentProps
-        
-        
+        if (this.props.location.pathname !== prevProps.location.pathname) {         
+          const prevQuery =  this.props.location.pathname.split("/");
+          const addressBarState = prevQuery[2];
+          this.performSearch(addressBarState);          
+        }
 
-        // if(prevState.history !== window.location.pathname ){
-        //     console.log(prevState);
-        //     //console.log('Should display:' + prevState.query);
-        //     const query = prevState.query;
-            //console.log(query);
-          /* Not sure how to send the value to perform Search. calling this.performSearch makes it go crazy. Should I use an onChange event in PhotoGallery 
-          
-          */
-    //}
-        
-        
-    }
+               
+    }// end of componentDidUpdate
+   
+
   
     /* 
         Using Axios to pull the images and then sending it to PhotoGallery
@@ -93,7 +93,7 @@ class App extends Component{
 
     render () {
        
-
+        
        
         return(
             <div className="container">
@@ -107,7 +107,7 @@ class App extends Component{
                             ? <p>Loading ...</p>
                             : <PhotoGallery data={this.state.gifs}  title={this.state.query} altTag={this.state.query}/>                            
                          }/>
-                        <Route exact path="/search/:query" render={ ()=> <PhotoGallery  data={this.state.gifs} title={this.state.query} altTag={this.state.query} /> }/>       
+                        <Route  path="/search/:query" render={ ()=> <PhotoGallery  data={this.state.gifs} title={this.state.query} altTag={this.state.query}  queryNameDisplay={this.handleAddress} /> }/>       
                         <Route component={NotFound} />
                     </Switch>    
                
@@ -121,5 +121,4 @@ class App extends Component{
 
 }
 
-//export default App;
 export default withRouter(App);
