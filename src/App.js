@@ -40,9 +40,9 @@ class App extends Component{
     * to the url and pull the query value to this.peform search   
     */
 
-    handleAddress = (query) =>{
-        this.performSearch(query);
-    }
+    // handleAddress = (query) =>{
+    //     this.performSearch(query);
+    // }
 
 
 

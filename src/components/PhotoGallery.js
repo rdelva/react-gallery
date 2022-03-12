@@ -6,7 +6,7 @@ import {withRouter } from 'react-router-dom';
 
 const PhotoGallery = (props, {match}) =>{
     const photoList = props.data;
-    console.log(props.match);
+    //console.log(props.match);
 
     // if(props.match.url){
     //     props.queryNameDisplay(props.match.params.query);
