@@ -6,11 +6,7 @@ from 'react-router-dom';
 
 
 const Nav = (props) => {
-    //    console.log(props); 
-    //   //adding searches to the history
-    //   let path = props.location.pathname;
-    // console.log(path);
-      
+
     
     return (
         /*
