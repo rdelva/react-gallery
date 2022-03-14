@@ -31,8 +31,9 @@ class App extends Component{
     handleClick = (e) =>{
         const query = e.target.id       
         this.performSearch(query); 
-  
+
     }
+
 
     /* 
     * Handle Click for the Address bar
@@ -40,14 +41,26 @@ class App extends Component{
     * to the url and pull the query value to this.peform search   
     */
 
-    // handleAddress = (query) =>{
-    //     this.performSearch(query);
+    // handleAddress = (e) =>{
+
+    //     console.log(e);
+    //         //when page loads or user types address it will load up apage
+       
+    //         const prevQuery =  this.props.location.pathname.split("/");
+    //         const addressBarState = prevQuery[2];
+  
+    //         this.setState({
+    //             query:addressBarState
+    //         });
+    //     //this.performSearch(query);
     // }
 
 
 
     componentDidMount(){
-       this.performSearch();       
+       this.performSearch();    
+            
+          
     }
     
     /**** 
@@ -62,17 +75,23 @@ class App extends Component{
           const prevQuery =  this.props.location.pathname.split("/");
           const addressBarState = prevQuery[2];
           this.performSearch(addressBarState);          
-        }
+        } 
 
                
     }// end of componentDidUpdate
    
+
 
   
     /* 
         Using Axios to pull the images and then sending it to PhotoGallery
      */
     performSearch = (query = 'tulips') => {
+
+        //sets up loading window before it pulls data
+        this.setState({loading: true});
+
+        //fetches data
         axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
         .then( response => {
                 
@@ -83,6 +102,7 @@ class App extends Component{
                   history:`/search/${query}`
                 
                 });
+
         })
         .catch(
            error => {
@@ -91,9 +111,7 @@ class App extends Component{
       }
     
 
-    render () {
-       
-        
+    render () {      
        
         return(
             <div className="container">
@@ -107,14 +125,14 @@ class App extends Component{
                             ? <p>Loading ...</p>
                             : <PhotoGallery data={this.state.gifs}  title={this.state.query} altTag={this.state.query}/>                            
                          }/>
-                        <Route  path="/search/:query" render={ ()=> <PhotoGallery  data={this.state.gifs} title={this.state.query} altTag={this.state.query}  queryNameDisplay={this.handleAddress} /> }/>       
+                         
+                        <Route  path="/search/:query" render={ ()=> <PhotoGallery  data={this.state.gifs} title={this.state.query} altTag={this.state.query}  onLoad={this.handleAddress} /> }/>       
                         <Route component={NotFound} />
                     </Switch>    
                
               
 
             </div>
-
 
         );
     }
