@@ -7,7 +7,7 @@ class SearchForm extends Component {
         super();
         
         this.state = {
-           query: ''
+           query: '',
         }
     }
 
@@ -21,6 +21,7 @@ class SearchForm extends Component {
         this.props.onSearch(this.query.value);
         e.currentTarget.reset();
         this.props.history.push(this.query.value);
+        
     }
 
     render () {
