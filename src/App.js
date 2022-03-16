@@ -89,7 +89,7 @@ class App extends Component{
     performSearch = (query = 'tulips') => {
 
         //sets up loading window before it pulls data
-        this.setState({loading: true});
+        this.setState({loading:true});
 
         //fetches data
         axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
@@ -126,7 +126,10 @@ class App extends Component{
                             : <PhotoGallery data={this.state.gifs}  title={this.state.query} altTag={this.state.query}/>                            
                          }/>
                          
-                        <Route  path="/search/:query" render={ ()=> <PhotoGallery  data={this.state.gifs} title={this.state.query} altTag={this.state.query}  onLoad={this.handleAddress} /> }/>       
+                        <Route  path="/search/:query" render={ ()=> 
+                            (this.state.loading)
+                            ? <p>Loading ...</p>
+                            : <PhotoGallery  data={this.state.gifs} title={this.state.query} altTag={this.state.query}  onLoad={this.handleAddress} /> }/>       
                         <Route component={NotFound} />
                     </Switch>    
                
