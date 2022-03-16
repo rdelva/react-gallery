@@ -1,4 +1,16 @@
-# Getting Started with Create React App
+# React Photo Gallery
+In order to use this application would need to create a config.js file, which contains  a Flickr API.
+
+The config file should look like this:
+
+<div style="background-color:#ccc;">
+    const apiKey = 'YOUR API KEY';
+    export default apiKey;
+</div>
+
+And be placed in the src folder
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
