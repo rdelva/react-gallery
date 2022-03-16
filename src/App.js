@@ -35,28 +35,6 @@ class App extends Component{
     }
 
 
-    /* 
-    * Handle Click for the Address bar
-    * NOTE: Hid the code in PhotoGallery = when you uncomment it causes it to freak out. Need to figure out what event to use which will listen 
-    * to the url and pull the query value to this.peform search   
-    */
-
-    // handleAddress = (e) =>{
-
-    //     console.log(e);
-    //         //when page loads or user types address it will load up apage
-       
-    //         const prevQuery =  this.props.location.pathname.split("/");
-    //         const addressBarState = prevQuery[2];
-  
-    //         this.setState({
-    //             query:addressBarState
-    //         });
-    //     //this.performSearch(query);
-    // }
-
-
-
     componentDidMount(){
        this.performSearch();    
             
