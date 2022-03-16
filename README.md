@@ -3,7 +3,7 @@ In order to use this application would need to create a config.js file, which co
 
 The config file should look like this:
 
-<div style="background-color:#ccc;">
+<div style="background-color:grey;">
     const apiKey = 'YOUR API KEY';
     export default apiKey;
 </div>
