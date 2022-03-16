@@ -17,9 +17,8 @@ class SearchForm extends Component {
     }
 
     handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault();        
         this.props.history.push(this.query.value);
-
         this.props.onSearch(this.query.value);
         e.currentTarget.reset();
         
@@ -34,7 +33,7 @@ class SearchForm extends Component {
                             name="search"
                             ref={(input) => this.query = input}
                             placeholder='Search' 
-                            
+                            required
                     />
 
                     <button type="submit">
