@@ -9,7 +9,7 @@ import{
 import SearchForm from './components/SearchForm';
 import Nav from './components/Nav';
 import PhotoGallery from './components/PhotoGallery';
-import NotFound from './components/NotFound';
+import Error from './components/Error';
 
 class App extends Component{
 
@@ -108,7 +108,7 @@ class App extends Component{
                             (this.state.loading)
                             ? <p>Loading ...</p>
                             : <PhotoGallery  data={this.state.gifs} title={this.state.query} altTag={this.state.query}  onLoad={this.handleAddress} /> }/>       
-                        <Route component={NotFound} />
+                        <Route component={Error} />
                     </Switch>    
                
               
